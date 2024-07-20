@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Registration Form</title>
+    <!-- Mobile Specific Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <!-- Font-->
+    <link rel="stylesheet" type="text/css" href="css/roboto-font.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="fonts/line-awesome/css/line-awesome.min.css"
+    />
+    <!-- Jquery -->
+    <link
+      rel="stylesheet"
+      href="https://jqueryvalidation.org/files/demo/site-demos.css"
+    />
+    <!-- Main Style Css -->
+    <link rel="stylesheet" href="FarmerReg.css" />
+    <link rel="icon" href="images/logo1.jpg" />
+    <!-- Add this line with the path to your favicon -->
+  </head>
+  <body class="form-v2">
+    <div class="page-content">
+      <div class="form-v2-content">
+        <div class="form-left">
+          <img src="images/logo1.jpg" alt="form" />
+        </div>
+        <div class="form-right">
+          <h2>Registration Form</h2>
+          <form id="farmerForm">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number:</label>
+              <input type="tel" id="phoneNumber" name="phoneNumber" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="state">State:</label>
+              <select id="state" name="state" required>
+                <option value="" disabled selected>Select a State</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="city">City:</label>
+              <input type="text" id="city" name="city" required />
+            </div>
+
+            <div class="form-group">
+              <label for="pincode">Pincode:</label>
+              <input type="text" id="pincode" name="pincode" required />
+            </div>
+
+            <div class="form-group">
+              <label for="landArea">Land Area (in acres):</label>
+              <input
+                type="number"
+                id="landArea"
+                name="landArea"
+                style="width: 60%"
+                required
+              />
+              <select id="areaUnit" name="areaUnit" style="width: 30%">
+                <option value="acres">Acres</option>
+                <option value="squareMeters">Square Meters</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="gender">Gender:</label>
+              <select id="gender" name="gender">
+                <option value="" disabled selected>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="nearbypanchayat">Nearby Panchayat Name:</label>
+              <input
+                type="text"
+                id="nearbypanchayat"
+                name="nearbypanchayat"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="panchayatph">Panchayat Phone:</label>
+              <input type="text" id="panchayatph" name="panchayatph" required />
+            </div>
+
+            <div class="form-group">
+              <label for="panchayatemail">Panchayat Email:</label>
+              <input
+                type="text"
+                id="panchayatemail"
+                name="panchayatemail"
+                required
+              />
+            </div>
+
+            <label for="numCrops">Number of Crops:</label>
+            <input type="number" id="numCrops" name="numCrops" required />
+
+            <div id="cropFields" class="crop-fields">
+              <!-- Crop Name fields will be added dynamically here -->
+            </div>
+
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script>
+      // jQuery Validation code here...
+
+      $(document).ready(function () {
+        // Show/hide crop name fields based on the number of crops
+        $("#numCrops").on("input", function () {
+          var numCrops = parseInt($(this).val());
+          var cropFields = $("#cropFields");
+
+          // Clear existing crop fields
+          cropFields.html("");
+
+          for (var i = 1; i <= numCrops; i++) {
+            cropFields.append(
+              '<div class="form-group"><label for="cropName' +
+                i +
+                '">Crop Name ' +
+                i +
+                ':</label><input type="text" id="cropName' +
+                i +
+                '" name="cropName' +
+                i +
+                '" required></div>'
+            );
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
