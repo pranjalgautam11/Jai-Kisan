@@ -22,9 +22,3 @@ Designing and building the Weather Dashboard taught me a lot since it was my fir
 - Change the landscape background image for Sunset/Sunrise Card based on whether current time is past sunset or before
 - Used Axios to make HTTP requests to API
 - Added a custom loading spinner animation as the default image for weather icons (allows user to see a loading image instead of a broken image tag until the weather icons loads)
-
-# Light Mode
-<a href="https://weather.aniqa.dev" target="_blank"><img src="https://github.com/aniqatc/weather/blob/main/assets/og-img.png?raw=true" style="max-width: 100%;"></a>
-
-# Dark Mode
-<a href="https://weather.aniqa.dev" target="_blank"><img src="/assets/screenshot-dark.png" style="max-width: 100%;"></a>
